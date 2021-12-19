@@ -4,23 +4,32 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="./script.js"></script>
-    <title>Horoscope</title>
+    <script src="./script.js" defer></script>
+    <title>Horoskop</title>
 </head>
 <body>
 
     <div>
 
+        <button onclick="addHoroscope()">Spara Horoskop</button>
+
+        <button onclick="updateHoroscope()">Updatera Horoskop</button>
+
+        <button onclick="deleteHoroscope()">Ta bort Horoskop</button>
+
     </div>
 
-
-    <input type="text">
-
-
     
-    <button></button>
+    
+        <input type="date" id="date">
+    
+    
 
-    <button></button>
+
+
+    <div id="loadHoroscope">
+        <div></div>
+    </div>
 
     
 </body>
