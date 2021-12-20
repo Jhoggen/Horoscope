@@ -8,7 +8,7 @@
             return data.json()
 
         }).then((result) => {
-            console.log(result)
+            
             loadHoroscope(result)
         }).catch((err) => {
             console.log(err)
