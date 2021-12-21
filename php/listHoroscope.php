@@ -3,13 +3,13 @@
 
 function fetchHscope($birthday) {
 
-   $hscope = '';     
-   $dates = explode('-', $birthday); 
-   $month = $dates[1];
-   $day = $dates[2];     
-   
+    $hscope = '';
+    $dates = explode('-', $birthday);
+    $month = $dates[1];
+    $day = $dates[2];
 
-   if ( ( $month == 3 && $day > 20 ) || ( $month == 4 && $day < 20 ) ) {
+
+    if ( ( $month == 3 && $day > 20 ) || ( $month == 4 && $day < 20 ) ) {
        $hscope = "Väduren"; 
     }
    elseif ( ( $month == 4 && $day > 19 ) || ( $month == 5 && $day < 21 ) ) { 
@@ -47,10 +47,8 @@ function fetchHscope($birthday) {
     } else { 
         $hscope = "Fyll i ditt personnummer för att se ditt stjärntecken"; 
     } 
- 
-   
+
   return $hscope;
   
-
 }
 ?>

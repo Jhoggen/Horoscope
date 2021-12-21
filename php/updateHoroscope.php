@@ -12,18 +12,15 @@ session_start();
                     require("listHoroscope.php");
 
                         $_SESSION["hscope"] = serialize(fetchHscope($_POST["date"]));
+
                         echo json_encode(unserialize($_SESSION["hscope"]));
                 }
 
             } else {
-                
+
                 echo json_encode("Datum ej inmatat");
             }
-        } else {
-            echo json_encode("Ingen POST metod");
         }
-    } else {
-        echo json_encode("Ingen giltig förfrågan");
     }
 
 ?>

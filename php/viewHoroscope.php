@@ -26,4 +26,5 @@ session_start();
         echo json_encode("Ingen giltig förfrågan");
         exit;
     }
+
 ?>
