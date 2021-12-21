@@ -1,5 +1,10 @@
-    
-    
+    window.addEventListener("load", initSite);
+
+    async function initSite() {
+        document.getElementById("loadHoroscope").innerText = ""
+        addHoroscope()
+    }
+
     function viewHoroscope() {
         fetch("./php/viewHoroscope.php", {
             method: "GET",
@@ -8,7 +13,7 @@
             return data.json()
 
         }).then((result) => {
-            
+            console.log(result)
             loadHoroscope(result)
         }).catch((err) => {
             console.log(err)
@@ -23,7 +28,6 @@
             div.innerText = ""
         }
       }
-    
     
     function addHoroscope() {
 
@@ -48,7 +52,6 @@
                 }).then((result) => {
                     console.log(result)
                     viewHoroscope()
-                    loadHoroscope(result)
 
                 }).catch((err) => {
                     console.log("Error: ", err)
@@ -56,13 +59,12 @@
                 
     }
 
-
       function updateHoroscope() {
 
         document.getElementById(date)
 
             let datum = date.value;
-            console.log(datum + "updaterat!")
+            console.log(datum + " updaterat!")
 
             let url = "./php/updateHoroscope.php"
             let method = "POST"
@@ -84,9 +86,8 @@
                 }).catch((err) => {
                     console.log("Error: ", err)
                 })
-                
-      }
 
+      }
 
       function deleteHoroscope() {
 
