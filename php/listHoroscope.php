@@ -44,8 +44,6 @@ function fetchHscope($birthday) {
     } 
    elseif ( ( $month == 2 && $day > 18 ) || ( $month == 3 && $day < 21 ) ) { 
        $hscope = "Fiskarna"; 
-    } else { 
-        $hscope = "Fyll i ditt personnummer för att se ditt stjärntecken"; 
     } 
 
   return $hscope;

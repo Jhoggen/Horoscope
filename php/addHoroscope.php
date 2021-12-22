@@ -4,7 +4,7 @@ session_start();
 
     require("listHoroscope.php");
 
-    if(isset($_SERVER["REQUEST_METHOD"])) {
+    if($_SERVER["REQUEST_METHOD"]) {
 
         if($_SERVER["REQUEST_METHOD"] == "POST") {
             if(!isset($_SESSION["hscope"])) {
@@ -14,7 +14,6 @@ session_start();
                     exit;
 
             } else {
-
                 echo json_encode(false. "Du har redan ett horoskop sparat! tryck på delete först.");
                 exit;
             }

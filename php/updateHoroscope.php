@@ -1,6 +1,7 @@
 <?php
 
 session_start();
+require("listHoroscope.php");
 
     if(isset($_SERVER["REQUEST_METHOD"])) {
 
@@ -9,7 +10,6 @@ session_start();
             if(isset($_POST["date"])) {
                 if(isset($_SESSION["hscope"])) {
 
-                    require("listHoroscope.php");
 
                         $_SESSION["hscope"] = serialize(fetchHscope($_POST["date"]));
 
@@ -17,8 +17,7 @@ session_start();
                 }
 
             } else {
-
-                echo json_encode("Datum ej inmatat");
+                echo json_encode(false);
             }
         }
     }
