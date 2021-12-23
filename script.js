@@ -2,7 +2,7 @@ window.addEventListener("load", initSite);
 
 function initSite() {
   document.getElementById("loadHoroscope").innerText = "";
-  updateHoroscope()
+  updateHoroscope();
 }
 
 function viewHoroscope() {
@@ -36,31 +36,31 @@ function addHoroscope() {
   let datum = date.value;
   console.log(datum);
 
-  if(datum == 0) {
-      document.getElementById("loadHoroscope").innerText = "Fyll i ditt personnummer för att se ditt horoskop"
- } else {
+  if (datum = null) {
+    document.getElementById("loadHoroscope").innerText =
+      "Fyll i ditt personnummer för att se ditt horoskop";
+  } else {
+    let url = "./php/addHoroscope.php";
+    let method = "POST";
+    let form = new FormData();
+    form.set("date", datum);
 
-  let url = "./php/addHoroscope.php";
-  let method = "POST";
-  let form = new FormData();
-  form.set("date", datum);
-
-  fetch(url, {
-    method: method,
-    body: form,
-  })
-    .then((response) => {
-      console.log(response);
-      return response.json();
+    fetch(url, {
+      method: method,
+      body: form,
     })
-    .then((result) => {
-      console.log(result);
-      viewHoroscope();
-    })
-    .catch((err) => {
-      console.log("Error: ", err);
-    });
- }
+      .then((response) => {
+        console.log(response);
+        return response.json();
+      })
+      .then((result) => {
+        console.log(result);
+        viewHoroscope();
+      })
+      .catch((err) => {
+        console.log("Error: ", err);
+      });
+  }
 }
 
 function updateHoroscope() {
@@ -69,32 +69,32 @@ function updateHoroscope() {
   let datum = date.value;
   console.log(datum + " updaterat!");
 
-  if(datum == 0) {
-      document.getElementById("loadHoroscope").innerText = "Inget datum inmatat, fyll i ditt födelsedatum"
+  if (datum = null) {
+    document.getElementById("loadHoroscope").innerText =
+      "Inget datum inmatat, fyll i ditt födelsedatum";
   } else {
+    let url = "./php/updateHoroscope.php";
+    let method = "POST";
+    let form = new FormData();
+    form.set("date", datum);
 
-  let url = "./php/updateHoroscope.php";
-  let method = "POST";
-  let form = new FormData();
-  form.set("date", datum);
-
-  fetch(url, {
-    method: method,
-    body: form,
-  })
-    .then((response) => {
-      console.log(response);
-      return response.json();
+    fetch(url, {
+      method: method,
+      body: form,
     })
-    .then((result) => {
-      console.log(result);
-      viewHoroscope();
-      loadHoroscope(result);
-    })
-    .catch((err) => {
-      console.log("Error: ", err);
-    });
-    }
+      .then((response) => {
+        console.log(response);
+        return response.json();
+      })
+      .then((result) => {
+        console.log(result);
+        viewHoroscope();
+        loadHoroscope(result);
+      })
+      .catch((err) => {
+        console.log("Error: ", err);
+      });
+  }
 }
 
 function deleteHoroscope() {
