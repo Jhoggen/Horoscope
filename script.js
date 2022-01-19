@@ -2,7 +2,7 @@ window.addEventListener("load", initSite);
 
 function initSite() {
   document.getElementById("loadHoroscope").innerText = "";
-  updateHoroscope();
+  viewHoroscope()
 }
 
 function viewHoroscope() {
@@ -34,11 +34,10 @@ function addHoroscope() {
   document.getElementById(date);
 
   let datum = date.value;
-  console.log(datum);
-
-  if (datum = null) {
-    document.getElementById("loadHoroscope").innerText =
-      "Fyll i ditt personnummer för att se ditt horoskop";
+  
+  if (datum == null) {
+    document.getElementById("loadHoroscope").innerHTML = "Fyll i ditt personnummer för att se ditt horoskop";
+    
   } else {
     let url = "./php/addHoroscope.php";
     let method = "POST";
@@ -67,11 +66,10 @@ function updateHoroscope() {
   document.getElementById(date);
 
   let datum = date.value;
-  console.log(datum + " updaterat!");
 
-  if (datum = null) {
-    document.getElementById("loadHoroscope").innerText =
-      "Inget datum inmatat, fyll i ditt födelsedatum";
+  if (datum == null) {
+    document.getElementById("loadHoroscope").innerHTML = "Inget datum inmatat, fyll i ditt födelsedatum";
+    
   } else {
     let url = "./php/updateHoroscope.php";
     let method = "POST";
@@ -87,9 +85,8 @@ function updateHoroscope() {
         return response.json();
       })
       .then((result) => {
-        console.log(result);
-        viewHoroscope();
-        loadHoroscope(result);
+        console.log(result)
+        viewHoroscope()
       })
       .catch((err) => {
         console.log("Error: ", err);
@@ -105,8 +102,8 @@ function deleteHoroscope() {
       return data.json();
     })
     .then((result) => {
+      console.log(result)
       viewHoroscope();
-      loadHoroscope(result);
     })
     .catch((err) => {
       console.log(err);
